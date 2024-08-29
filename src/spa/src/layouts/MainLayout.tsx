@@ -1,14 +1,14 @@
 import { FC, useState } from "react";
 import logo from "../assets/logo.svg";
 import { Link, NavLink, Outlet } from "react-router-dom";
-import { Divider, Image, makeStyles, mergeClasses, Slot, Tab, TabList, tokens, Tooltip } from "@fluentui/react-components";
+import { Avatar, Button, Divider, Image, makeStyles, mergeClasses, Persona, Popover, PopoverSurface, PopoverTrigger, Slot, Tab, TabList, Text, tokens, Tooltip } from "@fluentui/react-components";
 import { ChevronDoubleLeftRegular, ChevronDoubleRightRegular, PowerFilled, SettingsRegular, TextBulletListSquareClockRegular } from "@fluentui/react-icons";
 import { navigation } from "..";
 
 const useClasses = makeStyles({
     layout: {
         display: "grid",
-        gridTemplateRows: "48px auto",
+        gridTemplateRows: "50px auto",
         gridTemplateColumns: "auto minmax(0, 1fr)",
         gridTemplateAreas: 
         `'header header header header'
@@ -30,15 +30,47 @@ const useClasses = makeStyles({
         alignItems: "center",
         gap: "5px"
     },
-    signOutIconContainer: {
+    actions: {
         display: "flex",
+        gap: "10px"
+    },
+    profile: {
+        display: "flex",
+        alignItems: "center",
+        gap: "10px",
+        padding: "5px",
+        cursor: "pointer",
+        ':hover': {
+            backgroundColor: tokens.colorNeutralBackground5Hover
+        }
+    },
+    profilePopup: {
+        display: "flex",
+        gap: "10px",
         alignItems: "center"
     },
-    signOutIcon: { 
-        color: tokens.colorPaletteRedBackground3,
-        width: "20px",
-        height: "20px",
-        cursor: "pointer"
+    profilePopupUserData: {
+        display: "flex",
+        flexDirection: "column",
+        gap: "5px"
+    },
+    profilePopupDivider: {
+        padding: "15px 0px"
+    },
+    profilePopupActions: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "end"
+    },
+    profilePopupSignOutButton: {
+        width: "100%",
+        padding: "8px 0px",
+        color: tokens.colorNeutralForegroundStaticInverted,
+        backgroundColor: tokens.colorStatusDangerBackground3Hover,
+        ':hover': {
+            color: tokens.colorNeutralForegroundStaticInverted,
+            backgroundColor: tokens.colorStatusDangerBackground3Pressed
+        }
     },
 
     navigation: {
@@ -111,10 +143,30 @@ const Header: FC = () => {
                     <h1>Remind me</h1>
                 </div>
             </Link>
-            <div className={classes.signOutIconContainer}>
-                <Tooltip content="Wyloguj się" relationship="label">
-                    <PowerFilled className={classes.signOutIcon} onClick={() => alert("Singed out")} />
-                </Tooltip>
+            <div className={classes.actions}>
+                <Popover>
+                    <PopoverTrigger>
+                       <Tooltip content="Profil" relationship="label">
+                            <div className={classes.profile}>
+                                <Avatar name="Marcin" initials="MB" color="brand" />
+                                <Text>Marcin</Text>
+                            </div>
+                       </Tooltip>
+                    </PopoverTrigger>
+                    <PopoverSurface>
+                        <div>
+                            <div className={classes.profilePopup}>
+                                <Avatar name="Marcin" initials="MB" size={72} color="brand" />
+                                <div className={classes.profilePopupUserData}>
+                                    <h2>Marcin Burak</h2>
+                                    <Text>marcin.burak@outlook.com</Text>
+                                </div>
+                            </div>
+                            <Divider className={classes.profilePopupDivider} />
+                            <Button className={classes.profilePopupSignOutButton} icon={<PowerFilled />}>Wyloguj się</Button>
+                        </div>
+                    </PopoverSurface>
+                </Popover>
             </div>
         </header>
     );
