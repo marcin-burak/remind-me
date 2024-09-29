@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B7D17646-F5F6-4CC4-B187-D54628F7C03A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{6AE4E5CA-5193-4CEC-9DC1-0D5182288345}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{7817F24B-8A32-45B9-A8FB-40C89EF30645}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemindMe.Web", "src\RemindMe.Web\RemindMe.Web.csproj", "{B0C12D49-F66A-42DC-9A8E-900669487FF0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{83383EFF-DFA2-4609-BB26-20DFF0C53750}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+		nuget.config = nuget.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0C12D49-F66A-42DC-9A8E-900669487FF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0C12D49-F66A-42DC-9A8E-900669487FF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0C12D49-F66A-42DC-9A8E-900669487FF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0C12D49-F66A-42DC-9A8E-900669487FF0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B0C12D49-F66A-42DC-9A8E-900669487FF0} = {B7D17646-F5F6-4CC4-B187-D54628F7C03A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D4A222BC-845F-4528-91DB-5DF9C497F23C}
+	EndGlobalSection
+EndGlobal

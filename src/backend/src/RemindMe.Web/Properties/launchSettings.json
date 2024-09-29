@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Docker": {
+      "commandName": "SdkContainer",
+      "environmentVariables": {
+        "ASPNETCORE_HTTPS_PORTS": "8081"
+      }
+    }
+  }
+}

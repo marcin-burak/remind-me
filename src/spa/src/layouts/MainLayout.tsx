@@ -1,9 +1,10 @@
-import { FC, useState } from "react";
+import { FC, ReactNode, useState } from "react";
 import logo from "../assets/logo.svg";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { Avatar, Button, Divider, Image, makeStyles, mergeClasses, Persona, Popover, PopoverSurface, PopoverTrigger, Slot, Tab, TabList, Text, tokens, Tooltip } from "@fluentui/react-components";
 import { ChevronDoubleLeftRegular, ChevronDoubleRightRegular, PowerFilled, SettingsRegular, TextBulletListSquareClockRegular } from "@fluentui/react-icons";
 import { navigation } from "..";
+import exp from "constants";
 
 const useClasses = makeStyles({
     layout: {
@@ -176,6 +177,15 @@ const Navigation: FC = () => {
 
     const classes = useClasses();
     const [expanded, setExpanded] = useState(true);
+
+    const NavigationLink: FC<{ path: string, text: string, icon: ReactNode, expanded: boolean }> = ({ path, text, icon, expanded }) => {
+        return (
+            <NavLink to={path}>
+                {icon}
+                {expanded && <Text>{text}</Text>}
+            </NavLink>
+        );
+    };
 
     const ExpandableTab: FC<{ text: string, icon: Slot<'span'>, expanded: boolean }> = ({ text, icon, expanded }) => {
         if (expanded) {
